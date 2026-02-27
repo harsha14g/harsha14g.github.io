@@ -1,0 +1,500 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --foreground-muted: 0 0% 45%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 20% 96%;
+    --foreground-muted: 215 16% 72%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 20% 96%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 20% 96%;
+
+    --primary: 213 94% 68%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 222 30% 17%;
+    --secondary-foreground: 210 20% 96%;
+
+    --muted: 222 30% 17%;
+    --muted-foreground: 215 16% 72%;
+
+    --accent: 222 30% 17%;
+    --accent-foreground: 210 20% 96%;
+
+    --border: 217 25% 24%;
+    --input: 217 25% 24%;
+    --ring: 213 94% 68%;
+  }
+
+  .cyberpunk {
+    --background: 236 70% 8%;
+    --foreground: 197 100% 92%;
+    --foreground-muted: 197 100% 78%;
+
+    --card: 244 70% 11%;
+    --card-foreground: 197 100% 92%;
+
+    --popover: 244 70% 11%;
+    --popover-foreground: 197 100% 92%;
+
+    --primary: 157 100% 50%;
+    --primary-foreground: 236 70% 8%;
+
+    --secondary: 236 86% 16%;
+    --secondary-foreground: 197 100% 92%;
+
+    --muted: 236 86% 16%;
+    --muted-foreground: 197 100% 78%;
+
+    --accent: 284 100% 50%;
+    --accent-foreground: 197 100% 92%;
+
+    --border: 290 100% 50%;
+    --input: 284 100% 50%;
+    --ring: 197 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    transition: background-color 250ms ease, color 250ms ease;
+  }
+
+  .light body {
+    background-image:
+      radial-gradient(circle at 12% 0%, rgba(14, 165, 233, 0.11), transparent 36%),
+      radial-gradient(circle at 85% 8%, rgba(59, 130, 246, 0.1), transparent 34%),
+      linear-gradient(180deg, #f8fbff 0%, #f4f8ff 45%, #eff5ff 100%);
+  }
+
+  .light #main-scroll {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.06) 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+      0 8px 22px -20px rgba(59, 130, 246, 0.12);
+  }
+
+  .light nav.sticky {
+    background: rgba(255, 255, 255, 0.84) !important;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.28) !important;
+    box-shadow:
+      0 10px 28px -22px rgba(30, 64, 175, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(circle at 18% 8%, rgba(125, 211, 252, 0.14), transparent 32%),
+      radial-gradient(circle at 82% 0%, rgba(56, 189, 248, 0.12), transparent 30%),
+      linear-gradient(180deg, #0a1324 0%, #0b1220 100%);
+  }
+
+  .cyberpunk body {
+    background-image:
+      radial-gradient(circle at 12% 10%, rgba(0, 255, 159, 0.24), transparent 36%),
+      radial-gradient(circle at 78% 0%, rgba(0, 184, 255, 0.22), transparent 34%),
+      radial-gradient(circle at 95% 20%, rgba(214, 0, 255, 0.2), transparent 34%),
+      linear-gradient(180deg, rgba(0, 30, 255, 0.16) 0%, #07071c 36%, #0b0821 70%, #04040f 100%);
+  }
+}
+
+/* Futuristic subtle grid background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Apple-style smooth animations */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes route-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.995);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-route-enter {
+  animation: route-enter 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-route-enter {
+    animation: none;
+  }
+}
+
+/* Stagger delays for sequential reveal */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* Glass nav - light variant */
+.nav-glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Card hover - subtle lift */
+.card-hover {
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s ease, border-color 0.28s ease;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 36px -18px rgba(30, 64, 175, 0.2),
+    0 0 0 1px rgba(191, 219, 254, 0.44);
+}
+
+/* Apple liquid glass UI - transparent, frosted, written on glass */
+.liquid-glass {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%);
+  backdrop-filter: saturate(180%) blur(32px);
+  -webkit-backdrop-filter: saturate(180%) blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 12px 34px -16px rgba(15, 23, 42, 0.17),
+    inset 0 1px 0 rgba(255, 255, 255, 0.84),
+    inset 0 0 90px -34px rgba(59, 130, 246, 0.22);
+}
+.liquid-glass:hover {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.36),
+    0 18px 42px -18px rgba(30, 64, 175, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 96px -28px rgba(59, 130, 246, 0.28);
+}
+
+.dark .liquid-glass {
+  background: rgba(15, 23, 42, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  box-shadow:
+    0 0 0 1px rgba(148, 163, 184, 0.18),
+    0 10px 34px -12px rgba(2, 6, 23, 0.7),
+    inset 0 1px 0 rgba(186, 230, 253, 0.16),
+    inset 0 0 88px -28px rgba(56, 189, 248, 0.35);
+}
+
+.dark .liquid-glass:hover {
+  background: rgba(15, 23, 42, 0.74);
+  box-shadow:
+    0 0 0 1px rgba(186, 230, 253, 0.22),
+    0 16px 42px -14px rgba(2, 6, 23, 0.75),
+    inset 0 1px 0 rgba(186, 230, 253, 0.2),
+    inset 0 0 96px -22px rgba(56, 189, 248, 0.42);
+}
+
+/* Lighter glass for tags/pills */
+.liquid-glass-tag {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(245, 250, 255, 0.64) 100%);
+  backdrop-filter: saturate(150%) blur(16px);
+  -webkit-backdrop-filter: saturate(150%) blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 6px 18px -14px rgba(59, 130, 246, 0.28);
+}
+
+.dark .liquid-glass-tag {
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: inset 0 1px 0 rgba(186, 230, 253, 0.16);
+}
+
+.dark .card-hover:hover {
+  box-shadow:
+    0 14px 40px -14px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(125, 211, 252, 0.22);
+}
+
+.cyberpunk .liquid-glass {
+  background: rgba(15, 11, 50, 0.72);
+  border: 1px solid rgba(0, 184, 255, 0.48);
+  box-shadow:
+    0 0 0 1px rgba(189, 0, 255, 0.32),
+    0 10px 36px -12px rgba(1, 1, 10, 0.92),
+    inset 0 1px 0 rgba(0, 255, 159, 0.28),
+    inset 0 0 98px -24px rgba(0, 30, 255, 0.5);
+}
+
+.cyberpunk .liquid-glass:hover {
+  background: rgba(20, 13, 66, 0.82);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 159, 0.4),
+    0 16px 44px -14px rgba(1, 1, 10, 0.94),
+    inset 0 1px 0 rgba(0, 255, 159, 0.32),
+    inset 0 0 118px -20px rgba(214, 0, 255, 0.55);
+}
+
+.cyberpunk .liquid-glass-tag {
+  background: rgba(12, 18, 68, 0.9);
+  border: 1px solid rgba(0, 184, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(0, 255, 159, 0.24);
+}
+
+.cyberpunk .card-hover:hover {
+  box-shadow:
+    0 16px 44px -16px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(0, 184, 255, 0.45),
+    0 0 30px -8px rgba(189, 0, 255, 0.56);
+}
+
+.cyberpunk .text-\[\#0071e3\] {
+  color: #00b8ff !important;
+  text-shadow: 0 0 12px rgba(0, 184, 255, 0.52);
+}
+
+.cyberpunk #main-scroll {
+  background: rgba(6, 5, 26, 0.5) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 184, 255, 0.42),
+    inset 0 0 130px -34px rgba(214, 0, 255, 0.42) !important;
+}
+
+.cyberpunk nav {
+  background: rgba(7, 8, 34, 0.9) !important;
+  border-bottom: 1px solid rgba(0, 184, 255, 0.45) !important;
+  box-shadow:
+    0 0 0 1px rgba(214, 0, 255, 0.3),
+    0 10px 30px -16px rgba(0, 30, 255, 0.58) !important;
+}
+
+.cyberpunk #main-scroll main h1,
+.cyberpunk #main-scroll main h2,
+.cyberpunk #main-scroll main h3,
+.cyberpunk #main-scroll main h4 {
+  color: #dcfbff !important;
+  text-shadow:
+    0 0 20px rgba(0, 184, 255, 0.4),
+    0 0 26px rgba(189, 0, 255, 0.22);
+}
+
+.cyberpunk #main-scroll main p,
+.cyberpunk #main-scroll main li,
+.cyberpunk #main-scroll main blockquote,
+.cyberpunk #main-scroll main span {
+  color: #c6f4ff !important;
+}
+
+.cyberpunk #main-scroll main strong {
+  color: #00ff9f !important;
+  text-shadow: 0 0 10px rgba(0, 255, 159, 0.42);
+}
+
+.cyberpunk #main-scroll main a {
+  color: #00b8ff !important;
+  text-shadow: 0 0 14px rgba(0, 184, 255, 0.55);
+}
+
+.cyberpunk #main-scroll main a:hover {
+  color: #d600ff !important;
+  text-shadow: 0 0 18px rgba(214, 0, 255, 0.6);
+}
+
+.cyberpunk .dark\:text-slate-100 {
+  color: #dcfbff !important;
+}
+
+.cyberpunk .dark\:text-slate-200 {
+  color: #cff8ff !important;
+}
+
+.cyberpunk .dark\:text-slate-300,
+.cyberpunk .dark\:text-slate-400 {
+  color: #b8efff !important;
+}
+
+.cyberpunk .dark\:text-sky-300 {
+  color: #00b8ff !important;
+  text-shadow: 0 0 14px rgba(0, 184, 255, 0.55);
+}
+
+.cyberpunk .dark\:border-slate-700,
+.cyberpunk .dark\:border-slate-700\/70,
+.cyberpunk .dark\:border-slate-700\/80 {
+  border-color: rgba(0, 184, 255, 0.5) !important;
+}
+
+.cyberpunk .text-\[\#1d1d1f\] {
+  color: #dcfbff !important;
+}
+
+.cyberpunk .text-\[\#6e6e73\],
+.cyberpunk .text-\[\#86868b\],
+.cyberpunk .text-slate-500,
+.cyberpunk .text-slate-600 {
+  color: #bceeff !important;
+}
+
+.cyberpunk .cyberpunk-cta {
+  background: linear-gradient(90deg, #00b8ff 0%, #001eff 42%, #bd00ff 74%, #d600ff 100%) !important;
+  color: #00ff9f !important;
+  border: 1px solid rgba(0, 255, 159, 0.75) !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 184, 255, 0.4),
+    0 10px 24px -8px rgba(0, 30, 255, 0.8),
+    0 0 20px -2px rgba(214, 0, 255, 0.55);
+}
+
+.cyberpunk .cyberpunk-cta:hover {
+  background: linear-gradient(90deg, #00ff9f 0%, #00b8ff 34%, #001eff 60%, #bd00ff 82%, #d600ff 100%) !important;
+  color: #021024 !important;
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 159, 0.65),
+    0 12px 28px -8px rgba(0, 30, 255, 0.88),
+    0 0 24px rgba(0, 255, 159, 0.38);
+}
+
+.cyberpunk .theme-switch-btn {
+  background: linear-gradient(90deg, rgba(0, 30, 255, 0.72), rgba(189, 0, 255, 0.78)) !important;
+  color: #00ff9f !important;
+  border-color: rgba(0, 184, 255, 0.7) !important;
+  box-shadow: 0 0 14px rgba(0, 184, 255, 0.35), 0 0 22px rgba(214, 0, 255, 0.26);
+}
+
+.cyberpunk .theme-switch-btn:hover {
+  background: linear-gradient(90deg, rgba(0, 184, 255, 0.9), rgba(214, 0, 255, 0.86)) !important;
+  color: #00ff9f !important;
+}
+
+.cyberpunk .liquid-glass-tag,
+.cyberpunk .liquid-glass-tag * {
+  color: #bdf7ff !important;
+}
+
+.cyberpunk .contact-icon-chip {
+  background: linear-gradient(135deg, rgba(0, 30, 255, 0.44), rgba(214, 0, 255, 0.36)) !important;
+  border: 1px solid rgba(0, 184, 255, 0.68) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 255, 159, 0.34),
+    0 0 16px rgba(0, 184, 255, 0.28);
+}
+
+.cyberpunk .contact-icon {
+  color: #00ff9f !important;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 159, 0.58));
+}
+
+.cyberpunk .contact-external-icon {
+  color: #00b8ff !important;
+  filter: drop-shadow(0 0 8px rgba(0, 184, 255, 0.52));
+}
+
+.cyberpunk .group:hover .contact-icon-chip {
+  background: linear-gradient(135deg, rgba(0, 184, 255, 0.48), rgba(189, 0, 255, 0.46)) !important;
+  border-color: rgba(0, 255, 159, 0.84) !important;
+}
+
+.cyberpunk .group:hover .contact-icon {
+  color: #dcfbff !important;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 159, 0.72));
+}
+
+.cyberpunk .group:hover .contact-external-icon {
+  color: #d600ff !important;
+  filter: drop-shadow(0 0 10px rgba(214, 0, 255, 0.62));
+}
+
+
+/* Fluid trail fade out - 2 seconds */
+@keyframes fluid-trail-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.animate-fluid-trail {
+  animation: fluid-trail-fade 2s linear forwards;
+}
+
+/* Scattered fluid - moves and fades in 2s */
+@keyframes fluid-scatter {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--dx, 0), var(--dy, 0));
+    opacity: 0;
+  }
+}
+
+.animate-fluid-scatter {
+  animation: fluid-scatter 2s ease-out forwards;
+}
