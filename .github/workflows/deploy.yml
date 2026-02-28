@@ -41,4 +41,5 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update static site [skip ci]"
-          file_pattern: "index.html assets/** .nojekyll favicon-character.png favicon.svg preview.png harsha_profile.jpg robots.txt"
+          file_pattern: "index.html assets/** .nojekyll harsha_profile.jpg robots.txt"
+
