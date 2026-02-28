@@ -67,7 +67,7 @@ const Projects = () => {
       tech: ["Machine Learning", "Facial Recognition", "Lens Studio", "AR"],
       status: "Published",
       type: "",
-      url: "https://github.com/harsha14gupta/Snapchat-Lenses",
+      url: "https://github.com/harsha14g/Snapchat-Lenses",
     },
   ];
 
