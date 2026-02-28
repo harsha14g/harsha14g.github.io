@@ -50,7 +50,7 @@ const ExpandedExperienceCard = ({ exp }: { exp: ExperienceItem }) => {
       </CardHeader>
       <CollapsibleContent>
         <CardContent className="pt-0">
-          <ul className="space-y-3 mb-4">
+          <ul className="space-y-4 mb-4">
             {exp.achievements.map((achievement, i) => (
               <li key={i} className="flex items-start gap-3 text-[#6e6e73] dark:text-slate-200 text-sm">
                 <span className="text-[#0071e3] dark:text-sky-300 mt-1.5 text-xs shrink-0">●</span>
@@ -78,7 +78,7 @@ const experiences: ExperienceItem[] = [
   {
     company: "Goldman Sachs",
     position: "Software Engineering Analyst",
-    duration: "Juy 2023 - Present",
+    duration: "July 2023 - Present",
     location: "Hyderabad, India",
     achievements: [
       <>
@@ -113,6 +113,64 @@ const experiences: ExperienceItem[] = [
       </>
     ],
     skills: ["React", "TypeScript", "Java 21", "Spring Framework", "REST APIs", "Postman", "JBehave", "Serenity BDD", "Java Microservices"]
+  },
+  {
+    company: "Bain and Company",
+    position: "Technology Solutions Group - Intern",
+    duration: "Jan 2023 - Jun 2023",
+    location: "Gurugram, India",
+    achievements: [
+      <>
+        Engineered scalable test infrastructure using Selenium and Katalon, <strong>optimizing regression cycles by 40%</strong>
+        and hardening system reliability through expanded coverage.
+      </>,
+      "Conducted deep-dive system audits across production releases, identifying and resolving 20 high-impact architectural flaws to ensure seamless end-user experiences.",
+      <>
+        Benchmarked <strong>system performance</strong> under high-concurrency loads (5,000+ users) using JMeter,
+        architecting optimizations that eliminated bottlenecks and fortified system stability.
+      </>,
+      <>
+        Streamlined the delivery lifecycle by integrating <strong>automated validation into CI/CD</strong> pipelines,
+        accelerating release cycles by 5 hours through continuous integration.
+      </>
+    ],
+    skills: ["Katalon Studio", "JMeter", "CI/CD", "Test Automation", "Zephyr", "Selenium"]
+  },
+  {
+    company: "Widhya",
+    position: "Machine Learning Intern",
+    duration: "Feb 2021 - Mar 2021",
+    location: "Remote",
+    achievements: [
+      "Collaborated on all phases of machine learning model development, from building to deployment and evaluation.",
+      "Utilized Microsoft Azure and Python libraries, including pandas and matplotlib, to enhance data analysis.",
+      "Engaged in projects focused on quantitative modelling and machine learning predictions to drive insights."
+    ],
+    skills: ["Pandas", "Microsoft Azure Basics", "Machine Learning", "Matplotlib"]
+  },
+  {
+    company: "Desi ChalChitra",
+    position: "Frontend Developer Intern",
+    duration: "Jul 2020 - Dec 2020",
+    location: "Delhi, India",
+    achievements: [
+      "Developed responsive web designs for 32 platforms, enhancing user experience across devices.",
+      "Translated UI/UX design mockups into functional code, bringing visual elements to life.",
+      "Collaborated with the founder to introduce engaging blogs, contributing to a 49% growth in company visibility."
+    ],
+    skills: ["Frontend Development", "Responsive Design", "UI/UX", "WordPress", "Domain Hosting"]
+  },
+  {
+    company: "BNK Alloys",
+    position: "UI/UX Design Intern",
+    duration: "Feb 2020 - Apr 2020",
+    location: "Contract | Delhi, India",
+    achievements: [
+      "Developed wireframes and prototypes using AdobeXD, transforming concepts into functional digital products.",
+      "Planned site designs, functionality, and navigation to meet project requirements effectively.",
+      "Created visually appealing brochures and cards enhancing brand communication."
+    ],
+    skills: ["Adobe XD", "Figma", "Illustrator", "Wireframing", "Prototyping"]
   }
 ];
 const Experience = () => {
@@ -157,7 +215,7 @@ const Experience = () => {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 mb-6">
+                    <ul className="space-y-4 mb-6">
                       {exp.achievements.map((achievement, i) => (
                         <li key={i} className="flex items-start gap-3 text-[#6e6e73] dark:text-slate-200">
                           <span className="text-[#0071e3] dark:text-sky-300 mt-1.5 text-xs">●</span>
@@ -187,3 +245,6 @@ const Experience = () => {
 };
 
 export default Experience;
+
+
+

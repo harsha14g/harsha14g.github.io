@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Moon, Sparkles, Sun } from "lucide-react";
@@ -21,7 +21,7 @@ const Navigation = () => {
     { path: "/about", label: "About" },
     { path: "/experience", label: "Experience" },
     { path: "/projects", label: "Projects" },
-    { path: "/achievements", label: "Achievements" },
+    { path: "/education", label: "Education" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -154,4 +154,5 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
 

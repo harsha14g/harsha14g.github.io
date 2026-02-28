@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
@@ -16,35 +16,31 @@ const useIsMobile = () => {
 };
 
 const achievements = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-  "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
-  "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt."
+  { text: "Gen AI academy APAC Edition by Google", ongoing: true },
+  { text: "Foundations of User Experience (UX) Design by Google", ongoing: false },
+  { text: "Search Engine Optimization (SEO) on Udemy", ongoing: false },
 ];
 
-const Achievements = () => {
+const Education = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section id="achievements" className="pt-8 sm:pt-10 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8">
+    <section id="education" className="pt-4 sm:pt-6 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] dark:text-slate-100 mb-4 tracking-tight">
-            Achievements
-          </h2>
+        <div className="text-center mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] dark:text-slate-100 mb-4 tracking-tight">Education</h2>
           <p className="text-[#6e6e73] dark:text-slate-200 max-w-2xl mx-auto">
-            Highlights and milestones
+            'Cause learning never stops, right? Here’s a snapshot of my academic journey and educational background.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           <Card className="liquid-glass card-hover rounded-2xl border-white/70 dark:border-slate-700/70">
             {isMobile ? (
               <Collapsible defaultOpen={false}>
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-[#1d1d1f] dark:text-slate-100">Achievements & Education</h3>
+                    <h3 className="text-lg font-semibold text-[#1d1d1f] dark:text-slate-100">Education</h3>
                     <CollapsibleTrigger asChild>
                       <button className="flex items-center gap-1.5 text-sm font-medium text-[#0071e3] dark:text-sky-300 hover:underline">
                         View details
@@ -59,7 +55,14 @@ const Achievements = () => {
                       {achievements.map((achievement, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <span className="text-[#0071e3] dark:text-sky-300 mt-1 text-sm shrink-0">&#10022;</span>
-                          <span className="text-[#6e6e73] dark:text-slate-200 text-sm">{achievement}</span>
+                          <span className="text-[#6e6e73] dark:text-slate-200 text-sm">
+                            {achievement.text}
+                            {achievement.ongoing && (
+                              <span className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2 py-0.5 ml-2 text-[10px] font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-300">
+                                Ongoing
+                              </span>
+                            )}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -71,6 +74,10 @@ const Achievements = () => {
                       </p>
                       <p className="text-sm text-[#6e6e73] dark:text-slate-200">CGPA: 9.5/10 | Rank: 14</p>
                       <p className="text-xs text-[#86868b] dark:text-slate-300 mt-2">Delhi, India</p>
+                      <p className="text-[#0071e3] dark:text-sky-300 font-medium mt-4">Queen Mary's School, Northend</p>
+                      <p className="text-sm text-[#6e6e73] dark:text-slate-200 mt-1">AISSCE</p>
+                      <p className="text-sm text-[#6e6e73] dark:text-slate-200">Grade: 93%</p>
+                      <p className="text-xs text-[#86868b] dark:text-slate-300 mt-2">Delhi, India</p>
                     </div>
                   </CardContent>
                 </CollapsibleContent>
@@ -81,7 +88,14 @@ const Achievements = () => {
                   {achievements.map((achievement, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="text-[#0071e3] dark:text-sky-300 mt-1 text-sm">&#10022;</span>
-                      <span className="text-[#6e6e73] dark:text-slate-200">{achievement}</span>
+                      <span className="text-[#6e6e73] dark:text-slate-200">
+                        {achievement.text}
+                        {achievement.ongoing && (
+                          <span className="inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2 py-0.5 ml-2 text-[10px] font-semibold uppercase tracking-wide text-emerald-600 dark:text-emerald-300">
+                            Ongoing
+                          </span>
+                        )}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -93,6 +107,10 @@ const Achievements = () => {
                   </p>
                   <p className="text-sm text-[#6e6e73] dark:text-slate-200">CGPA: 9.5/10 | Rank: 14</p>
                   <p className="text-xs text-[#86868b] dark:text-slate-300 mt-2">Delhi, India</p>
+                  <p className="text-[#0071e3] dark:text-sky-300 font-medium mt-4">Queen Mary's School, Northend</p>
+                  <p className="text-sm text-[#6e6e73] dark:text-slate-200 mt-1">AISSCE</p>
+                  <p className="text-sm text-[#6e6e73] dark:text-slate-200">Grade: 93%</p>
+                  <p className="text-xs text-[#86868b] dark:text-slate-300 mt-2">Delhi, India</p>
                 </div>
               </CardContent>
             )}
@@ -103,6 +121,5 @@ const Achievements = () => {
   );
 };
 
-export default Achievements;
-
+export default Education;
 

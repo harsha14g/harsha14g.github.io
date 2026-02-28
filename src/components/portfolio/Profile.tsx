@@ -1,4 +1,4 @@
-﻿import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,8 +10,15 @@ const Profile = () => {
   return (
     <section
       id="hero"
-      className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative"
+      className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 relative profile-hero-stage"
     >
+      <div className="profile-atmosphere" aria-hidden="true">
+        <div className="profile-orb profile-orb--a" />
+        <div className="profile-orb profile-orb--b" />
+        <div className="profile-orb profile-orb--c" />
+        <div className="profile-grid" />
+      </div>
+
       <div className="text-center max-w-4xl mx-auto z-10">
         <div className="pt-5 sm:pt-6 mb-4 opacity-0 animate-fade-in-up delay-100 flex flex-col items-center justify-center gap-3 sm:gap-4 sm:mb-6">
           <img
@@ -77,12 +84,9 @@ const Profile = () => {
             </Button>
           </div>
         </div>
-
       </div>
     </section>
   );
 };
 
 export default Profile;
-
-

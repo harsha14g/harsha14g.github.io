@@ -9,7 +9,7 @@ import Profile from "@/components/portfolio/Profile";
 import About from "@/components/portfolio/About";
 import Experience from "@/components/portfolio/Experience";
 import Projects from "@/components/portfolio/Projects";
-import Achievements from "@/components/portfolio/Achievements";
+import Education from "@/components/portfolio/Education";
 import Contact from "@/components/portfolio/Contact";
 import PortfolioLayout from "./pages/PortfolioLayout";
 
@@ -19,7 +19,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider
       attribute="class"
-      defaultTheme="cyberpunk"
+      defaultTheme="dark"
       enableSystem={false}
       disableTransitionOnChange
       themes={["light", "dark", "cyberpunk"]}
@@ -34,7 +34,7 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/achievements" element={<Achievements />} />
+              <Route path="/education" element={<Education />} />
               <Route path="/contact" element={<Contact />} />
             </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
@@ -47,3 +47,6 @@ const App = () => (
 );
 
 export default App;
+
+
+

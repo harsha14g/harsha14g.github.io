@@ -15,45 +15,60 @@ const useIsMobile = () => {
   return isMobile;
 };
 
+type Project = {
+  title: string;
+  period: string;
+  description: string;
+  tech: string[];
+  status?: string;
+  type?: string;
+  url: string;
+};
+
 const Projects = () => {
   const isMobile = useIsMobile();
-  const projects = [
+
+  const projects: Project[] = [
     {
-      title: "Lorem Ipsum Project Alpha",
-      period: "Lorem 2026",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      tech: ["Lorem", "Ipsum", "Dolor", "Sit", "Amet"],
-      status: "Lorem",
-      type: "Ipsum",
-      url: "www.google.com"
+      title: "Incident Management System",
+      period: "2026",
+      description:
+        "Engineering teams often face recurring incidents but lack an effective way to learn from past resolutions. This project builds an AI-powered incident knowledge system that ingests reports, generates structured summaries, and enables semantic search over historical incidents. It uses Spring Boot (Java 17), MongoDB with vector embeddings, Gemini API for AI processing, and a React + TypeScript frontend, deployable to AWS.",
+      tech: ["Spring Boot", "Java 17", "MongoDB", "Gemini API", "Semantic Search", "React", "TypeScript", "AWS"],
+      status: "Ongoing",
+      type: "",
+      url: "https://github.com/harsha14g/Incident-Postmortem-System/tree/harsha-main",
     },
     {
-      title: "Lorem Ipsum Project Beta",
-      period: "Ipsum 2026",
-      description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      tech: ["Consectetur", "Adipiscing", "Elit", "Tempor"],
-      status: "Dolor",
-      type: "Sit",
-      url: "www.google.com"
+      title: "Revamping Healthcare with Web3.0",
+      period: "2023",
+      description:
+        "Designed and developed a decentralized organ transplant matching engine leveraging Ethereum smart contracts to automate secure donor-recipient pairing and ensure EMR traceability via an immutable blockchain. I engineered the multi-tiered dashboard system to manage complex authentication and cross-functional approval workflows, ensuring high-integrity data access control and system-wide visibility.",
+      tech: ["Blockchain","Ethereum", "Smart Contracts", "Solidity", "Metamask", "Ganache"],
+      status: "Publication",
+      type: "",
+      url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4381964",
     },
     {
-      title: "Lorem Ipsum Project Gamma",
-      period: "Dolor 2025",
-      description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      tech: ["Incididunt", "Labore", "Magna", "Aliqua"],
-      status: "Amet",
-      type: "Lorem",
-      url: "www.google.com"
+      title: "Rotaract Website",
+      period: "2022",
+      description:
+        "Developed a community service platform built with React and WordPress to help more people find ways to give back. It's been a rewarding project to scale, so far, it has hit over 200k lifetime views and successfully connected 500+ volunteers to meaningful causes.",
+      tech: ["React", "WordPress", "Community Platform", "GoDaddy"],
+      status: "Live",
+      type: "",
+      url: "https://rachyderabad3150.netlify.app/",
     },
     {
-      title: "Lorem Ipsum Project Delta",
-      period: "Sit 2025",
-      description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      tech: ["Excepteur", "Occaecat", "Cupidatat", "Proident"],
-      status: "Tempor",
-      type: "Dolor",
-      url: "www.google.com"
-    }
+      title: "Snapchat Lenses",
+      period: "2022",
+      description:
+        "I trained a facial recognition ML model and used Lens Studio to build AR lenses that went live on Snapchat, racking up 195k+ views and reaching over 156k users. It was a fun way to bridge machine learning and interactive design, seeing a project go from a local build to a viral digital experience.",
+      tech: ["Machine Learning", "Facial Recognition", "Lens Studio", "AR"],
+      status: "Published",
+      type: "",
+      url: "https://github.com/harsha14gupta/Snapchat-Lenses",
+    },
   ];
 
   return (
@@ -63,9 +78,7 @@ const Projects = () => {
           <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] dark:text-slate-100 mb-4 tracking-tight">
             Projects
           </h2>
-          <p className="text-[#6e6e73] dark:text-slate-200 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet
-          </p>
+          <p className="text-[#6e6e73] dark:text-slate-200 max-w-2xl mx-auto">Here are some of my projects. I've worked on a variety of things, from AI-powered systems to decentralized applications and AR experiences.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6">
@@ -82,13 +95,17 @@ const Projects = () => {
                         <CardTitle className="text-base text-[#1d1d1f] dark:text-slate-100 font-semibold">
                           {project.title}
                         </CardTitle>
-                        <span className="text-xs font-medium px-2.5 py-1 liquid-glass-tag text-slate-600 dark:text-slate-100 rounded-full shrink-0">
-                          {project.status}
-                        </span>
+                        {project.status && (
+                          <span className="text-xs font-medium px-2.5 py-1 liquid-glass-tag text-slate-600 dark:text-slate-100 rounded-full shrink-0">
+                            {project.status}
+                          </span>
+                        )}
                       </div>
                       <div className="flex flex-wrap gap-2 text-xs text-[#86868b] dark:text-slate-300">
                         <span>{project.period}</span>
-                        <span className="text-[#0071e3] dark:text-sky-300 font-medium">{project.type}</span>
+                        {project.type && (
+                          <span className="text-[#0071e3] dark:text-sky-300 font-medium">{project.type}</span>
+                        )}
                       </div>
                       {project.url && (
                         <a
@@ -146,14 +163,16 @@ const Projects = () => {
                         </CardTitle>
                         <div className="flex flex-col sm:flex-row sm:gap-4 gap-1 mt-2">
                           <span className="text-sm text-[#86868b] dark:text-slate-300">{project.period}</span>
-                          <span className="text-sm font-medium text-[#0071e3] dark:text-sky-300">
-                            {project.type}
-                          </span>
+                          {project.type && (
+                            <span className="text-sm font-medium text-[#0071e3] dark:text-sky-300">{project.type}</span>
+                          )}
                         </div>
                       </div>
-                      <span className="text-xs font-medium px-3 py-1.5 liquid-glass-tag text-slate-600 dark:text-slate-100 rounded-full">
-                        {project.status}
-                      </span>
+                      {project.status && (
+                        <span className="text-xs font-medium px-3 py-1.5 liquid-glass-tag text-slate-600 dark:text-slate-100 rounded-full">
+                          {project.status}
+                        </span>
+                      )}
                     </div>
                   </CardHeader>
                   <CardContent>
@@ -190,5 +209,4 @@ const Projects = () => {
 };
 
 export default Projects;
-
 
